@@ -1,15 +1,21 @@
+export interface User {
+  username: string
+  name: string
+  avatar: string
+}
+
+export interface PullRequest {
+  repo: string
+  title: string
+  url: string
+  created_at: string
+  state: 'merged' | 'draft' | 'open' | 'closed'
+  number: number
+  type: 'User' | 'Organization'
+  stars: number
+}
+
 export interface Contributions {
-  user: {
-    username: string
-    name: string
-    avatar: string
-  }
-  prs: {
-    repo: string
-    title: string
-    url: string
-    created_at: string
-    state: 'merged' | 'open' | 'closed'
-    number: string
-  }[]
+  user: User
+  prs: PullRequest[]
 }
